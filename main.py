@@ -15,9 +15,25 @@ class MainPage(Common):
     
     def get(self):
         self.render("./templates/main.html")
+        return
 
+class CreatePage(Common):
+    
+    def get(self):
+        self.render("./templates/create.html")
+        return
 
-application = webapp.WSGIApplication([('/', MainPage)], debug=True)
+class PresentationsPage(Common):
+    
+    def get(self):
+        self.render("./templates/presentations.html")
+        return
+
+application = webapp.WSGIApplication([
+                            ('/', MainPage),
+                            ('/create', CreatePage),
+                            ('/presentations', PresentationsPage)
+                            ],debug=True)
 
 
 def main():
